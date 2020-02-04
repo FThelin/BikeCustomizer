@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Monoton&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color:  #547980;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    font-family: 'Monoton', cursive;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    height: 70vh;
+    flex-grow: 1;
+
+}
+.bike {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    background-color: #9DE0AD;
+}
+aside {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 25%;
+    background-color: #594F4F;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+
+.colors {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+.allcolors {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 60%;
+}
+
+.black {
+    background-color: black;
+    width: 25%;
+    height: 50%;
+}
+
+.white {
+    background-color: white;
+    width: 25%;
+    height: 50%;
+}
+
+.blue {
+    background-color: blue;
+    width: 25%;
+    height: 50%;
+}
+
+.red {
+    background-color: red;
+    width: 25%;
+    height: 50%;
+}
+
+.green {
+    background-color: green;
+    width: 25%;
+    height: 50%;
+}
+
+.yellow {
+    background-color: yellow;
+    width: 25%;
+    height: 50%;
+}
+
+.gold {
+    background-color: gold;
+    width: 25%;
+    height: 50%;
+}
+
+.silver {
+    background-color: silver;
+    width: 25%;
+    height: 50%;
+}
+/*  #E5FCC2   #9DE0AD   #45ADA8   #547980   #594F4F */
+
+
