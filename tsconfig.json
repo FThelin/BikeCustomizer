@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outFile": "./built/bundle.js",
+        "allowJs": true,
+        "target": "es5"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
