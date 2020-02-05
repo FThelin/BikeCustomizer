@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito|Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Lobster&display=swap');
 
 * {
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     background-color:  #547980;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Bebas Neue', cursive;
 }
 
 header {
@@ -15,7 +15,9 @@ header {
     justify-content: center;
     align-items: center;
     height: 20vh;
-    font-family: 'Monoton', cursive;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: rgb(41, 41, 41) ;
 }
 
 main {
@@ -24,91 +26,206 @@ main {
     height: 70vh;
     flex-grow: 1;
 
-}
-.bike {
-    display: flex;
-    justify-content: center;
+}.bike {
     width: 60%;
-    background-color: #9DE0AD;
 }
+
+.bike img {
+    width: 100%;
+}
+
 aside {
+    position: relative;
+    width: 20%;
+    background-color: #9DE0AD;
+    border-radius: 5px;
+    display: grid;
+    grid-gap: 5%;
+    padding: 1.25%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "frame saddle"
+    "tires text"
+    "handlebars treadels"
+    ;
+}
+
+aside .icon {
+    border: 1px solid gray;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    /* align-items: center; */
-    width: 25%;
-    background-color: #594F4F;
-}
-
-.tools {
-    display: flex;
     justify-content: center;
-    width: 100%;
-    height: 30%;
+    align-items: center;
 }
 
-.colors {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 10%;
+aside .icon:hover {
+    cursor: pointer;
+    animation: shake 0.8s ease-in-out;
+    background-color: rgb(179, 228, 190);
 }
 
-.allcolors {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 60%;
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+        
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
+
+aside .icon p {
+    font-size: 2rem;
+}
+
+aside .icon img {
+    width: 80%;
+}
+
+
+
+.frame {
+    grid-area: frame;
+}
+.saddle {
+    grid-area: saddle;
+}
+.tires {
+    grid-area: tires;
+}
+.text {
+    grid-area: text;
+}
+.handlebars{
+    grid-area: handlebars;
+}
+.treadels {
+    grid-area: treadels;
+}
+
+/* Pop ups */
+
+@keyframes show {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+.show {
+    animation: show 0.6s forwards;
+}
+
+.frame-popup {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+    padding: 2%;
+    left: 0;
+    top: 0;
+    
+}
+
+.frame-popup .frame-inner-div {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    ". h3 h3 . x"
+    ". . . . ."
+    ". b . r ."
+    ". w . g ."
+    ". o . p ."
+    ". gd . s ."
+    ". . . . ."
+    ;
+}
+
+.frame-inner-div div {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid rgb(39, 39, 39);    
+}
+
+.frame-inner-div div:hover {
+    border: 2.5px solid rgb(22, 22, 22);
+    cursor: pointer;    
+}
+
+.frame-inner-div h3 {
+    grid-area: h3;
+    font-size: 1.5rem;
+}
+
+.frame-inner-div p {
+    grid-area: x;
+    font-size: 1.2rem;
+    color: rgb(44, 44, 44);
+    text-align: right;
+}
+
+.frame-inner-div p:hover {
+    cursor: pointer;
+    color: gray;
+}
+
 
 .black {
-    background-color: black;
-    width: 25%;
-    height: 50%;
+   grid-area: b;
+   background-color: rgb(24, 24, 24); 
 }
-
-.white {
-    background-color: white;
-    width: 25%;
-    height: 50%;
-}
-
-.blue {
-    background-color: blue;
-    width: 25%;
-    height: 50%;
-}
-
 .red {
-    background-color: red;
-    width: 25%;
-    height: 50%;
+    grid-area: r;
+    background-color: #FC3033; 
 }
-
+.darkblue {
+    grid-area: w; 
+    background-color: #334FDE;
+}
 .green {
-    background-color: green;
-    width: 25%;
-    height: 50%;
+    grid-area: g; 
+    background-color: #56A14C;
 }
-
-.yellow {
-    background-color: yellow;
-    width: 25%;
-    height: 50%;
+.blue {
+    grid-area: o; 
+    background-color: #3AA6D7;
 }
-
+.purple {
+    grid-area: p; 
+    background-color: #864ECD;
+}
 .gold {
-    background-color: gold;
-    width: 25%;
-    height: 50%;
+    grid-area: gd; 
+    background-color: #F3A930;
+}
+.silver {
+    grid-area: s; 
+    background-color: #869292;
 }
 
-.silver {
-    background-color: silver;
-    width: 25%;
-    height: 50%;
-}
+
+
 /*  #E5FCC2   #9DE0AD   #45ADA8   #547980   #594F4F */
 
 
