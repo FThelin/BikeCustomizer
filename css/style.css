@@ -26,9 +26,19 @@ main {
     height: 70vh;
     flex-grow: 1;
 
-}.bike {
+}
+
+.bike {
     width: 60%;
 }
+
+.button {
+    margin-left: 10%;
+    height: 2rem;
+    width: 6rem;
+    background-color: #45ADA8;
+}
+
 
 .bike img {
     width: 100%;
