@@ -3,6 +3,8 @@ const toolsInner: HTMLDivElement = document.querySelector('.frame-popup .frame-i
 const closeFrame: HTMLParagraphElement = document.querySelector('.frame-popup .frame-inner-div p');
 const colors: NodeListOf<HTMLDivElement> = document.querySelectorAll('.frame-popup .frame-inner-div div');
 const bikeImage: HTMLImageElement = document.querySelector('.bike img');
+const bikeFrame: NodeList = document.querySelectorAll('.bikeframe');
+console.log(bikeFrame)
 
 //Open toolbar windows
 for (let i = 0; i < tools.length; i++) {
@@ -27,5 +29,8 @@ for (let i = 0; i < colors.length; i++) {
     colors[i].addEventListener('click', () => {
         let color: String = colors[i].classList[0];
         bikeImage.setAttribute('src', `./img/bike${color}.jpg`);
+        bikeFrame.forEach((frame: HTMLElement) => {
+            frame.style.stroke = `${color}`;
+        })
     })
 }
