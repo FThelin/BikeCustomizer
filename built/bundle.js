@@ -1,9 +1,12 @@
 var tools = document.querySelectorAll('aside .icon');
 var toolsInner = document.querySelector('.frame-popup .frame-inner-div');
 var toolsWheele = document.querySelector('.wheele-popup .wheele-inner-div');
+var toolsSaddle = document.querySelector('.saddle-popup .saddle-inner-div');
 var closeFrame = document.querySelector('.frame-popup .frame-inner-div p');
+var closeSaddle = document.querySelector('.saddle-popup .saddle-inner-div p');
 var closeWheele = document.querySelector('.wheele-popup .wheele-inner-div p');
 var colors = document.querySelectorAll('.frame-popup .frame-inner-div div');
+var colorsSaddle = document.querySelectorAll('.saddle-popup .saddle-inner-div div');
 var colorsWheele = document.querySelectorAll('.wheele-popup .wheele-inner-div div');
 var bikeImage = document.querySelector('.bike img');
 var bikeSaddle = document.querySelectorAll('.saddle');
@@ -14,18 +17,14 @@ var _loop_1 = function (i) {
         var name = tools[i].classList[0];
         var popup = document.querySelector("." + name + "-popup");
         console.log(name);
-        if (name === 'frame') {
-            frameColor();
-        }
-        else if (name === 'wheele') {
-            wheeleColor();
-        }
-        else if (name === 'saddle') {
-            saddleColor();
-        }
         popup.classList.add('show');
         setTimeout(function () {
-            toolsInner.style.visibility = 'visible';
+            if (name === 'frame')
+                toolsInner.style.visibility = 'visible';
+            if (name === 'wheele')
+                toolsWheele.style.visibility = 'visible';
+            if (name === 'saddle')
+                toolsSaddle.style.visibility = 'visible';
         }, 800);
     });
 };
@@ -38,50 +37,52 @@ closeFrame.addEventListener('click', function () {
     toolsInner.style.visibility = 'hidden';
     toolsInner.parentElement.classList.remove('show');
 });
-function frameColor() {
-    var _loop_2 = function (i) {
-        colors[i].addEventListener('click', function () {
-            var color = colors[i].classList[0];
-            console.log(color);
-            bikeImage.setAttribute('src', "./img/bike" + color + ".jpg");
-            bikeFrame.forEach(function (frame) {
-                frame.style.stroke = "" + color;
-            });
+closeWheele.addEventListener('click', function () {
+    toolsWheele.style.visibility = 'hidden';
+    toolsWheele.parentElement.classList.remove('show');
+});
+closeSaddle.addEventListener('click', function () {
+    toolsSaddle.style.visibility = 'hidden';
+    toolsSaddle.parentElement.classList.remove('show');
+});
+var _loop_2 = function (i) {
+    colors[i].addEventListener('click', function () {
+        var color = colors[i].classList[0];
+        console.log(color);
+        bikeImage.setAttribute('src', "./img/bike" + color + ".jpg");
+        bikeFrame.forEach(function (frame) {
+            frame.style.stroke = "" + color;
         });
-    };
-    //Color picker
-    for (var i = 0; i < colors.length; i++) {
-        _loop_2(i);
-    }
+    });
+};
+//Color picker Frame
+for (var i = 0; i < colors.length; i++) {
+    _loop_2(i);
 }
-function wheeleColor() {
-    var _loop_3 = function (i) {
-        colors[i].addEventListener('click', function () {
-            var color = colors[i].classList[0];
-            console.log(color);
-            colors[i].removeEventListener('click', function () { });
-            bikeWheele.forEach(function (wheele) {
-                wheele.style.stroke = "" + color;
-            });
+var _loop_3 = function (i) {
+    colorsWheele[i].addEventListener('click', function () {
+        var color = colorsWheele[i].classList[0];
+        console.log(color);
+        bikeWheele.forEach(function (wheele) {
+            wheele.style.stroke = "" + color;
         });
-    };
-    //Color picker
-    for (var i = 0; i < colors.length; i++) {
-        _loop_3(i);
-    }
+    });
+};
+//Color picker Wheels
+for (var i = 0; i < colorsWheele.length; i++) {
+    _loop_3(i);
 }
-function saddleColor() {
-    var _loop_4 = function (i) {
-        colors[i].addEventListener('click', function () {
-            var color = colors[i].classList[0];
-            console.log(color);
-            bikeSaddle.forEach(function (saddle) {
-                saddle.style.stroke = "" + color;
-                saddle.style.fill = "" + color;
-            });
+var _loop_4 = function (i) {
+    colorsSaddle[i].addEventListener('click', function () {
+        var color = colorsSaddle[i].classList[0];
+        console.log(color);
+        bikeSaddle.forEach(function (saddle) {
+            saddle.style.stroke = "" + color;
+            saddle.style.fill = "" + color;
         });
-    };
-    for (var i = 0; i < colors.length; i++) {
-        _loop_4(i);
-    }
+    });
+};
+//Color picker Saddle
+for (var i = 0; i < colorsSaddle.length; i++) {
+    _loop_4(i);
 }
