@@ -12,6 +12,24 @@ var bikeImage = document.querySelector('.bike img');
 var bikeSaddle = document.querySelectorAll('.saddle');
 var bikeFrame = document.querySelectorAll('.bikeframe');
 var bikeWheele = document.querySelectorAll('.wheele');
+var button = document.querySelector('.button');
+var bike = document.querySelector('.bike');
+var svgbike = document.querySelector('.svgbike svg');
+var svgdiv = document.querySelector('.svgbike');
+button.addEventListener('click', function () {
+    if (svgbike.style.display === 'none') {
+        bike.style.display = 'none';
+        svgdiv.style.width = '60%';
+        svgbike.style.width = '100%;';
+        svgbike.style.display = 'flex';
+    }
+    else {
+        bike.style.display = 'flex';
+        svgdiv.style.width = '0%';
+        svgbike.style.width = '0%;';
+        svgbike.style.display = 'none';
+    }
+});
 var _loop_1 = function (i) {
     tools[i].addEventListener('click', function () {
         var name = tools[i].classList[0];

@@ -12,6 +12,25 @@ const bikeImage: HTMLImageElement = document.querySelector('.bike img');
 const bikeSaddle: NodeList = document.querySelectorAll('.saddle');
 const bikeFrame: NodeList = document.querySelectorAll('.bikeframe');
 const bikeWheele: NodeList = document.querySelectorAll('.wheele');
+const button: HTMLButtonElement = document.querySelector('.button');
+const bike: HTMLDivElement = document.querySelector('.bike');
+const svgbike: SVGElement = document.querySelector('.svgbike svg');
+const svgdiv: HTMLDivElement = document.querySelector('.svgbike');
+
+
+button.addEventListener('click', () => {
+    if(svgbike.style.display === 'none') {
+        bike.style.display = 'none';
+        svgdiv.style.width = '60%';
+        svgbike.style.width = '100%;';
+        svgbike.style.display = 'flex';
+    } else {
+        bike.style.display = 'flex';
+        svgdiv.style.width = '0%';
+        svgbike.style.width = '0%;';
+        svgbike.style.display = 'none';
+    }
+})
 
 //Open toolbar windows
 for (let i = 0; i < tools.length; i++) {
@@ -22,12 +41,12 @@ for (let i = 0; i < tools.length; i++) {
         popup.classList.add('show');
         setTimeout(() => {
             if (name === 'frame')
-            toolsInner.style.visibility = 'visible';
+                toolsInner.style.visibility = 'visible';
             if (name === 'wheele')
-            toolsWheele.style.visibility = 'visible';
+                toolsWheele.style.visibility = 'visible';
             if (name === 'saddle')
-            toolsSaddle.style.visibility = 'visible';
-        },800)
+                toolsSaddle.style.visibility = 'visible';
+        }, 800)
     })
 }
 
@@ -46,6 +65,8 @@ closeSaddle.addEventListener('click', () => {
     toolsSaddle.style.visibility = 'hidden';
     toolsSaddle.parentElement.classList.remove('show');
 })
+
+
 
 
 
@@ -76,7 +97,7 @@ for (let i = 0; i < colorsWheele.length; i++) {
 
 
 //Color picker Saddle
-for(let i = 0; i < colorsSaddle.length; i++) {
+for (let i = 0; i < colorsSaddle.length; i++) {
     colorsSaddle[i].addEventListener('click', () => {
         let color: String = colorsSaddle[i].classList[0];
         console.log(color);
